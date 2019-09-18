@@ -1,0 +1,10 @@
+.Session {
+  color: #000;
+  background-color: #fff;
+  display: inline-flex;
+  border: 2px solid black;
+  min-width: 5em;
+  min-height: 3em;
+  align-items: center;
+  justify-content: center;
+}
