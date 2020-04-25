@@ -1,9 +1,15 @@
+import format from 'date-fns/format';
+
 export const formatTime = (time: number) => {
   const hh = Math.floor(time / 100) % 12 || 12;
   const mm = String(time % 100).padStart(2, '0');
   const ampm = time < 1200 ? 'am' : 'pm';
   return `${hh}:${mm}${ampm}`;
 };
+
+export const formatDate = (date: string) => (
+  format(new Date(date), 'iiii do MMMM')
+);
 
 export const addTime = (time: number, byMinutes: number) => {
   const beforeHH = Math.floor(time / 100);
