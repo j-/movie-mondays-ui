@@ -27,5 +27,7 @@ export interface FetchSessionsResult {
       [sessionId: string]: Session;
     };
   };
-  result: string[];
 }
+
+export const getFilmPath = ({ id }: Pick<Film, 'id'>) => `/movie/${id}`;
+export const getSessionPath = ({ id }: Pick<Session, 'id'>) => `/session/${id}`;

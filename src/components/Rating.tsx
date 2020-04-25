@@ -15,7 +15,16 @@ const Rating: React.FC<Props> = ({ rating }) => {
     'Rating--r': rating === 'R18+',
     'Rating--ctc': rating === 'CTC',
   });
-  return <span className={className}>{rating}</span>;
+  const title = (
+    rating === 'G' ? 'General' :
+    rating === 'PG' ? 'Parental Guidance' :
+    rating === 'M' ? 'Mature' :
+    rating === 'MA15+' ? 'Mature Accompanied' :
+    rating === 'R18+' ? 'Restricted' :
+    rating === 'CTC' ? 'Check the Classification' :
+    null
+  );
+  return <span className={className} title={title}>{rating}</span>;
 };
 
 export default Rating;

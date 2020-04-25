@@ -3,8 +3,25 @@
   background-color: #fff;
   display: inline-flex;
   border: 2px solid black;
-  min-width: 5em;
-  min-height: 3em;
+  min-width: 8em;
+  min-height: 4em;
   align-items: center;
   justify-content: center;
+}
+
+.Session--past {
+  opacity: 0.5;
+}
+
+.Session--is-selling-fast {
+  background-color: hsl(0, 80%, 90%);
+}
+
+.Session--is-sold-out {
+  background-color: #444;
+  color: #fff;
+}
+
+.Session--is-sold-out:hover {
+  color: #fff;
 }

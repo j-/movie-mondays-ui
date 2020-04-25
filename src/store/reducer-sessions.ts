@@ -3,7 +3,7 @@ import { Session } from '../types';
 import { isActionFetchSuccess } from './actions';
 
 export interface ReducerState {
-  [id: string]: Session;
+  readonly [id: string]: Session;
 }
 
 const DEFAULT_STATE: ReducerState = {};

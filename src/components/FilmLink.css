@@ -1,0 +1,26 @@
+.FilmLink {
+  color: #000;
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: row;
+}
+
+.FilmLink:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.FilmLink-title {
+  flex: 1;
+}
+
+.FilmLink-rating > .Rating {
+  display: inline-block;
+}
+
+.FilmLink:hover > .Rating {
+  text-decoration: none;
+}
+
+.FilmLink:hover > .FilmLink-title {
+  text-decoration: underline;
+}

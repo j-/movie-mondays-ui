@@ -1,4 +1,8 @@
 body {
   background-color: hsl(200, 80%, 90%);
-  font-family: sans-serif;
+}
+
+h1 a,
+h2 a {
+  color: inherit;
 }

@@ -7,6 +7,10 @@
   border-radius: 0.25em;
 }
 
+.Rating[title] {
+  cursor: help;
+}
+
 .Rating--g {
   color: #fff;
   background-color: #23b24b;

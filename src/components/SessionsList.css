@@ -1,0 +1,16 @@
+
+.SessionsList-sessions {
+  margin: 0.25em -0.25em;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.SessionsList-session {
+  margin: 0.25em;
+}

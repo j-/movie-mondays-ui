@@ -1,28 +1,18 @@
 import * as React from 'react';
+import sortBy from 'lodash/sortBy';
 import { Film as FilmType, Session as SessionType } from '../types';
 import FilmLink from './FilmLink';
-import Session from './Session';
-import './FilmSessions.css';
+import SessionsList from './SessionsList';
 
 export interface Props {
   film: FilmType;
   sessions: SessionType[];
 }
 
-const FilmSessions: React.FC<Props> = ({ film, sessions }) => {
-  const children = [...sessions]
-    .sort((a, b) => a.time - b.time)
-    .map((session) => (
-      <li key={session.id} className="FilmSessions-session">
-        <Session session={session} />
-      </li>
-    ));
-  return (
-    <div className="FilmSessions">
-      <div className="FilmSessions-film"><FilmLink film={film} /></div>
-      <ul className="FilmSessions-sessions">{children}</ul>
-    </div>
-  );
-};
+const FilmSessions: React.FC<Props> = ({ film, sessions }) => (
+  <SessionsList sessions={sortBy(sessions, 'time')}>
+    <strong><FilmLink film={film} /></strong>
+  </SessionsList>
+);
 
 export default FilmSessions;

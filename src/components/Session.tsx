@@ -1,25 +1,35 @@
 import * as React from 'react';
-import { Session as SessionType } from '../types';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
+import { Session as SessionType, getSessionPath } from '../types';
+import { useNow } from '../use-now';
+import { useToday } from '../use-today';
+import FormatTime from './FormatTime';
 import './Session.css';
 
 export interface Props {
   session: SessionType;
 }
 
-const formatTime = (time: number) => {
-  const hh = Math.floor(time / 100) % 12 || 12;
-  const mm = String(time % 100).padStart(2, '0');
-  const ampm = time < 1200 ? 'am' : 'pm';
-  return `${hh}:${mm}${ampm}`;
-};
-
 const Session: React.FC<Props> = ({ session }) => {
-  const { id, time } = session;
-  const href = `https://ticketing.palacecinemas.com.au/Ticketing/visSelectTickets.aspx?cinemacode=300&txtSessionId=${id}`;
+  const now = useNow();
+  const today = useToday();
+  const { date, time, isSellingFast, isSoldOut } = session;
+  const to = getSessionPath(session);
+  const className = classNames('Session', {
+    'Session--past': today >= date && now > time,
+    'Session--is-selling-fast': isSellingFast,
+    'Session--is-sold-out': isSoldOut,
+  });
+  const title = (
+    isSellingFast ? 'Selling fast' :
+    isSoldOut ? 'Sold out' :
+    'Tickets available'
+  );
   return (
-    <a className="Session" href={href}>
-      {formatTime(time)}
-    </a>
+    <Link className={className} to={to} title={title}>
+      <FormatTime time={time} />
+    </Link>
   );
 };
 

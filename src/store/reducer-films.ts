@@ -3,7 +3,7 @@ import { Film } from '../types';
 import { isActionFetchSuccess } from './actions';
 
 export interface ReducerState {
-  [id: string]: Film;
+  readonly [id: string]: Film;
 }
 
 const DEFAULT_STATE: ReducerState = {};

@@ -2,7 +2,9 @@ import * as React from 'react';
 import { useSelector } from 'react-redux';
 import { getAllFilms, getAllSessions } from '../store';
 import { useToday } from '../use-today';
+import { sortTitle } from '../sort-title';
 import FilmSessions from './FilmSessions';
+import './SessionsToday.css';
 
 const SessionsToday: React.FC = () => {
   const today = useToday();
@@ -16,13 +18,7 @@ const SessionsToday: React.FC = () => {
     .sort((a, b) => {
       const filmA = getFilmById(a);
       const filmB = getFilmById(b);
-      if (filmA.title < filmB.title) {
-        return -1;
-      } else if (filmA.title > filmB.title) {
-        return 1;
-      } else {
-        return 0;
-      }
+      return sortTitle(filmA.title, filmB.title);
     })
     .filter((item, i, arr) => i === 0 || item !== arr[i - 1]);
   return (

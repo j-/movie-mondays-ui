@@ -35,7 +35,7 @@ export const fetchSessions = (): ActionFetch => async (dispatch) => {
     type: ACTION_FETCH_START,
   });
   try {
-    const res = await fetch('https://u1kwh.sse.codesandbox.io/');
+    const res = await fetch('https://z79bu.sse.codesandbox.io/');
     const payload = await res.json() as FetchSessionsResult;
     dispatch<ActionFetchSuccess>({
       type: ACTION_FETCH_SUCCESS,
