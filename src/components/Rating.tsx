@@ -22,7 +22,7 @@ const Rating: React.FC<Props> = ({ rating }) => {
     rating === 'MA15+' ? 'Mature Accompanied' :
     rating === 'R18+' ? 'Restricted' :
     rating === 'CTC' ? 'Check the Classification' :
-    null
+    undefined
   );
   return <span className={className} title={title}>{rating}</span>;
 };

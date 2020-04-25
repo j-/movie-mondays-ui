@@ -13,17 +13,21 @@ export interface Props {
 
 const DOORS_MINUTES = 10;
 const TRAILERS_MINUTES = 15;
+const DEFAULT_RUNTIME = 120;
 
 const SessionTimeline: React.FC<Props> = ({ session }) => {
   const now = useNow();
   const films = useSelector(getAllFilms);
   const film = films.find((film) => film.id === session.filmId);
+
+  if (!film) return null;
+
   const { runtimeMinutes } = film;
 
   const timeTrailers = session.time;
   const timeDoors = subtractTime(timeTrailers, DOORS_MINUTES);
   const timeStart = addTime(timeTrailers, TRAILERS_MINUTES);
-  const timeFinish = addTime(timeStart, runtimeMinutes);
+  const timeFinish = addTime(timeStart, runtimeMinutes || DEFAULT_RUNTIME);
 
   return (
     <ul className="SessionTimeline">

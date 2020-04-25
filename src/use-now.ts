@@ -8,12 +8,15 @@ const getNow = () => getTime(new Date());
 
 export const useNow = () => {
   const [time, setTime] = React.useState(getNow());
+
   React.useEffect(() => {
     const interval = setInterval(() => {
       const newTime = getNow();
       if (time !== newTime) setTime(newTime);
     }, 1000 * 60); // Every minute
+
     return () => clearInterval(interval);
   });
+
   return time;
 };

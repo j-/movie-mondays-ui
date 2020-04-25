@@ -16,8 +16,8 @@ const SessionsToday: React.FC = () => {
   const filmIds = sessionsToday
     .map((session) => session.filmId)
     .sort((a, b) => {
-      const filmA = getFilmById(a);
-      const filmB = getFilmById(b);
+      const filmA = getFilmById(a)!;
+      const filmB = getFilmById(b)!;
       return sortTitle(filmA.title, filmB.title);
     })
     .filter((item, i, arr) => i === 0 || item !== arr[i - 1]);
@@ -26,7 +26,7 @@ const SessionsToday: React.FC = () => {
       {filmIds.map((filmId) => (
         <li key={filmId}>
           <FilmSessions
-            film={getFilmById(filmId)}
+            film={getFilmById(filmId)!}
             sessions={getSessionsByFilmId(filmId)}
           />
         </li>
