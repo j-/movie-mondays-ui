@@ -2,7 +2,8 @@
   color: #000;
   background-color: #fff;
   display: inline-flex;
-  border: 2px solid black;
+  border: 2px solid hsl(200, 20%, 50%);
+  border-radius: 0.25em;
   min-width: 8em;
   min-height: 4em;
   align-items: center;
@@ -15,11 +16,13 @@
 
 .Session--is-selling-fast {
   background-color: hsl(0, 80%, 90%);
+  border-color: hsl(0, 20%, 50%);
 }
 
 .Session--is-sold-out {
   background-color: #444;
   color: #fff;
+  border-color: #000;
 }
 
 .Session--is-sold-out:hover {
