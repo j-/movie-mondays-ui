@@ -24,11 +24,13 @@ const SessionsToday: React.FC = () => {
   return (
     <ul className="SessionsToday">
       {filmIds.map((filmId) => (
-        <li key={filmId}>
-          <FilmSessions
-            film={getFilmById(filmId)!}
-            sessions={getSessionsByFilmId(filmId)}
-          />
+        <li key={filmId} className="mt-3 mb-3">
+          <div className="card card-body">
+            <FilmSessions
+              film={getFilmById(filmId)!}
+              sessions={getSessionsByFilmId(filmId)}
+            />
+          </div>
         </li>
       ))}
     </ul>

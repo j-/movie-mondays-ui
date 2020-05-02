@@ -21,11 +21,13 @@ const SessionsForFilm: React.FC<Props> = ({ filmId }) => {
   return (
     <ul className="SessionsForFilm">
       {sessionDates.map((date) => (
-        <li key={date}>
-          <DaySessions
-            day={date}
-            sessions={filmSessions.filter((session) => session.date === date)}
-          />
+        <li key={date} className="mt-3 mb-3">
+          <div className="card card-body">
+            <DaySessions
+              day={date}
+              sessions={filmSessions.filter((session) => session.date === date)}
+            />
+          </div>
         </li>
       ))}
     </ul>
