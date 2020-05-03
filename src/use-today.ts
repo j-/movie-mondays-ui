@@ -28,4 +28,4 @@ export const useToday = () => {
   return IS_DEBUG ? useTodayMock() : date;
 };
 
-export const useTodayMock = () => '2019-09-16'
+export const useTodayMock = () => '2019-09-17';

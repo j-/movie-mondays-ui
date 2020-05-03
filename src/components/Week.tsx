@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import addDays from 'date-fns/addDays';
 import formatDate from 'date-fns/format';
 import isSameDay from 'date-fns/isSameDay';
@@ -19,9 +20,10 @@ const Day: React.FC<{
   const className = classNames(
     'flex-sm-fill text-sm-center nav-link',
     isSelected && 'active',
-    !isSelected && isMonday && 'border border-primary',
+    isMonday && 'border border-primary',
   );
-  return <a className={className} href="#">{label}</a>;
+  const href = '/sessions/' + formatDate(date, 'yyyy-MM-dd');
+  return <Link className={className} to={href}>{label}</Link>;
 };
 
 const Week: React.FC<Props> = ({ today, selected }) => {
