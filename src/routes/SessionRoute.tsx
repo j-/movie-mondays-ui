@@ -35,7 +35,14 @@ const SessionRoute: React.FC<RouteComponentProps<Params>> = ({ match }) => {
       </div>
 
       <div className="mt-5 mb-5">
-        <a className="btn btn-primary" target="_blank" rel="noopener noreferrer" href={`https://ticketing.palacecinemas.com.au/Ticketing/visSelectTickets.aspx?cinemacode=300&txtSessionId=${sessionId}`}>Buy tickets for this session</a>
+        <a
+          className="btn btn-primary"
+          target="_blank"
+          rel="noopener noreferrer"
+          href={`https://ticketing.palacecinemas.com.au/Ticketing/visSelectTickets.aspx?cinemacode=300&txtSessionId=${sessionId}`}
+        >
+          Buy tickets for this session
+        </a>
       </div>
 
       <h3>Details</h3>
