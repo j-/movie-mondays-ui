@@ -14,3 +14,13 @@
 .SessionsList-session {
   margin: 0.25em;
 }
+
+.SessionsList-children a {
+  font-weight: inherit;
+  color: inherit;
+  display: flex;
+}
+
+.SessionsList-children a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

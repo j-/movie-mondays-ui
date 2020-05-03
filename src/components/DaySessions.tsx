@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'react-router-dom';
 import format from 'date-fns/format';
 import sortBy from 'lodash/sortBy';
 import { Session as SessionType } from '../types';
@@ -9,11 +10,13 @@ export interface Props {
   sessions: SessionType[];
 }
 
-const dayFormat = 'iiii do MMMM';
-
 const DaySessions: React.FC<Props> = ({ day, sessions }) => (
   <SessionsList sessions={sortBy(sessions, 'time')}>
-    <strong>{format(new Date(day), dayFormat)}</strong>
+    <strong>
+      <Link to={'/sessions/' + format(new Date(day), 'yyyy-MM-dd')}>
+        {format(new Date(day), 'iiii do MMMM')}
+      </Link>
+    </strong>
   </SessionsList>
 );
 
