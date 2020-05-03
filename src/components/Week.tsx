@@ -17,15 +17,11 @@ const Day: React.FC<{
   const label = isToday ? 'Today' : formatDate(date, 'iiii');
   const isMonday = date.getDay() === 1;
   const className = classNames(
-    'nav-link',
+    'flex-sm-fill text-sm-center nav-link',
     isSelected && 'active',
     !isSelected && isMonday && 'border border-primary',
   );
-  return (
-    <li className="nav-item">
-      <a className={className} href="#">{label}</a>
-    </li>
-  );
+  return <a className={className} href="#">{label}</a>;
 };
 
 const Week: React.FC<Props> = ({ today, selected }) => {
@@ -37,7 +33,7 @@ const Week: React.FC<Props> = ({ today, selected }) => {
   const d5 = addDays(d0, 5);
   const d6 = addDays(d0, 6);
   return (
-    <ul className="nav nav-pills nav-fill">
+    <nav className="nav nav-pills flex-column flex-sm-row">
       <Day date={d0} isToday={isSameDay(today, d0)} isSelected={isSameDay(selected, d0)} />
       <Day date={d1} isToday={isSameDay(today, d1)} isSelected={isSameDay(selected, d1)} />
       <Day date={d2} isToday={isSameDay(today, d2)} isSelected={isSameDay(selected, d2)} />
@@ -45,7 +41,7 @@ const Week: React.FC<Props> = ({ today, selected }) => {
       <Day date={d4} isToday={isSameDay(today, d4)} isSelected={isSameDay(selected, d4)} />
       <Day date={d5} isToday={isSameDay(today, d5)} isSelected={isSameDay(selected, d5)} />
       <Day date={d6} isToday={isSameDay(today, d6)} isSelected={isSameDay(selected, d6)} />
-    </ul>
+    </nav>
   );
 };
 
