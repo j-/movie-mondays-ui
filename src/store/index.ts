@@ -1,7 +1,10 @@
 import { combineReducers } from 'redux';
+import { useSelector as reactReduxUseSelector, TypedUseSelectorHook } from 'react-redux';
 import * as films from './reducer-films';
 import * as network from './reducer-network';
 import * as sessions from './reducer-sessions';
+
+export const useSelector: TypedUseSelectorHook<RootReducerState> = reactReduxUseSelector;
 
 export interface RootReducerState {
   films: films.ReducerState;
@@ -17,6 +20,10 @@ export default combineReducers<RootReducerState>({
 
 export const getAllFilms = (state: RootReducerState) => (
   films.getAllFilms(state.films)
+);
+
+export const getFilmById = (state: RootReducerState, filmId: string) => (
+  getAllFilms(state).find((film) => film.id === filmId)
 );
 
 export const isFetching = (state: RootReducerState) => (

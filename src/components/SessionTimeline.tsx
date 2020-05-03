@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Session as SessionType } from '../types';
-import { useSelector } from 'react-redux';
-import { getAllFilms } from '../store';
+import { useSelector, getFilmById } from '../store';
 import { useNow } from '../use-now';
 import Timeline from './Timeline';
 
@@ -13,8 +12,7 @@ export const DEFAULT_RUNTIME = 120;
 
 const SessionTimeline: React.FC<Props> = ({ session }) => {
   const now = useNow();
-  const films = useSelector(getAllFilms);
-  const film = films.find((film) => film.id === session.filmId);
+  const film = useSelector((state) => getFilmById(state, session.filmId));
 
   if (!film) return null;
 
