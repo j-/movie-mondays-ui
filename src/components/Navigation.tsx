@@ -8,6 +8,8 @@ export interface Props {
 const Navigation: React.FC<Props> = ({ hideHomeLink }) => (
   <nav className="nav flex-column mt-3 mb-4">
     {hideHomeLink || <li className="nav-item"><Link to="/" className="nav-link">&larr; Home</Link></li>}
+    <li className="nav-item"><Link to="/sessions/today" className="nav-link">Today's sessions</Link></li>
+    <li className="nav-item"><Link to="/sessions/monday" className="nav-link">Monday's sessions</Link></li>
     <li className="nav-item"><Link to="/movies" className="nav-link">All movies</Link></li>
   </nav>
 );

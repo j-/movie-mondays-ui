@@ -15,7 +15,7 @@ const SessionsTodayRoute: React.FC<RouteComponentProps> = () => {
       <h1 className="mb-5">Today's sessions</h1>
       <Navigation hideHomeLink={true} />
       <Week today={todayDate} selected={selectedDate} />
-      <SessionsForDay date={today} />;
+      <SessionsForDay date={today} />
     </section>
   );
 };
