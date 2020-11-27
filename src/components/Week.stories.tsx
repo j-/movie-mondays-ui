@@ -1,9 +1,14 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+import { DecoratorFn } from '@storybook/react';
 import Week from './Week';
+
+const withRouter: DecoratorFn = (storyFn) => <StaticRouter>{storyFn()}</StaticRouter>;
 
 export default {
   title: 'Week',
   component: Week,
+  decorators: [withRouter],
 };
 
 export const TodayIsSelected = () => (
