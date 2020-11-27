@@ -3,6 +3,7 @@ export interface Session {
   filmId: string;
   date: string;
   time: number;
+  isAllocatedSeating: boolean;
   isNoFreeTickets: boolean;
   isPreviewScreening: boolean;
   isSpecialEvent: boolean;
@@ -10,6 +11,16 @@ export interface Session {
   isSellingFast: boolean;
   isSoldOut: boolean;
 }
+
+export type SessionCondition = (
+  'isAllocatedSeating' |
+  'isBabyFriendly' |
+  'isNoFreeTickets' |
+  'isPreviewScreening' |
+  'isSellingFast' |
+  'isSoldOut' |
+  'isSpecialEvent'
+);
 
 export interface Film {
   id: string;
